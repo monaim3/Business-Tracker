@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  body {
+    background-color: #f4fafa;
+    color: #0D2B2B;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .teal-card {
+    @apply bg-white rounded-2xl shadow-sm overflow-hidden;
+    border: 1px solid #d0eded;
+    border-top: 4px solid #2BBCBC;
+  }
+
+  .section-card {
+    @apply bg-white rounded-2xl overflow-hidden;
+    border: 1px solid #d0eded;
+    box-shadow: 0 1px 4px rgba(43, 188, 188, 0.08);
+  }
+
+  .btn-teal {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl text-sm font-semibold text-white transition-all;
+    background-color: #2BBCBC;
+    padding: 0.6rem 1.25rem;
+  }
+  .btn-teal:hover {
+    background-color: #1A9090;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition-all;
+    background-color: #ffffff;
+    border: 1.5px solid #d0eded;
+    color: #2BBCBC;
+    padding: 0.6rem 1.25rem;
+  }
+  .btn-outline:hover {
+    background-color: #E6F7F7;
+  }
+
+  .input-field {
+    @apply w-full h-10 px-3 rounded-xl text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:outline-none;
+    background: white;
+    border: 1.5px solid #d0eded;
+  }
+  .input-field:focus {
+    border-color: #2BBCBC;
+    box-shadow: 0 0 0 3px rgba(43, 188, 188, 0.12);
+  }
+}
