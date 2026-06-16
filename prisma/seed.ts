@@ -56,8 +56,13 @@ async function main() {
     { date: new Date("2026-06-16"), itemName: "Dollar Buy", amount: 600,  note: null },
   ];
 
-  const result = await prisma.expense.createMany({ data: expenses });
-  console.log(`✅ ${result.count} expenses inserted`);
+  const existingCount = await prisma.expense.count();
+  if (existingCount === 0) {
+    const result = await prisma.expense.createMany({ data: expenses });
+    console.log(`✅ ${result.count} expenses inserted`);
+  } else {
+    console.log(`⏭ Expenses already exist (${existingCount} rows), skipping`);
+  }
 }
 
 main()

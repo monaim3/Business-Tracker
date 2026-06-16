@@ -4,6 +4,7 @@ import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
         <main className={user ? "ml-60 min-h-screen p-6 lg:p-8" : "min-h-screen"}>
           {children}
         </main>
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

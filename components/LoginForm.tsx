@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Loader2, Mail, Lock } from "lucide-react";
+import { toast } from "sonner";
 
 export function LoginForm() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -29,8 +28,8 @@ export function LoginForm() {
     if (res?.error) {
       setError("Invalid email or password.");
     } else {
-      router.push("/");
-      router.refresh();
+      toast.success("Login successful! Redirecting...");
+      setTimeout(() => { window.location.href = "/"; }, 1000);
     }
   }
 
