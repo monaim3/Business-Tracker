@@ -26,7 +26,10 @@ export function Sidebar({ userName, userEmail }: Props) {
       style={{ borderRight: "1.5px solid #d0eded" }}
     >
       {/* Logo */}
-      <div className="px-5 py-5" style={{ borderBottom: "1.5px solid #d0eded" }}>
+      <div
+        className="px-5 py-5"
+        style={{ borderBottom: "1.5px solid #d0eded" }}
+      >
         <Link href="/">
           <Image
             src="/Monaax.png"
@@ -37,9 +40,6 @@ export function Sidebar({ userName, userEmail }: Props) {
             className="object-contain"
           />
         </Link>
-        <p className="text-xs text-gray-400 mt-1.5 font-medium tracking-widest uppercase">
-          Order Tracker
-        </p>
       </div>
 
       {/* Nav items */}
@@ -75,7 +75,10 @@ export function Sidebar({ userName, userEmail }: Props) {
       </nav>
 
       {/* User + logout */}
-      <div className="px-4 py-4 space-y-3" style={{ borderTop: "1.5px solid #d0eded" }}>
+      <div
+        className="px-4 py-4 space-y-3"
+        style={{ borderTop: "1.5px solid #d0eded" }}
+      >
         <div className="flex items-center gap-2.5 px-1">
           <div
             className="h-8 w-8 rounded-full flex items-center justify-center shrink-0 text-white text-xs font-bold"
@@ -84,7 +87,9 @@ export function Sidebar({ userName, userEmail }: Props) {
             {userName.charAt(0).toUpperCase()}
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold text-gray-700 truncate">{userName}</p>
+            <p className="text-xs font-semibold text-gray-700 truncate">
+              {userName}
+            </p>
             <p className="text-[10px] text-gray-400 truncate">{userEmail}</p>
           </div>
         </div>

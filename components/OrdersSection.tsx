@@ -3,7 +3,12 @@
 import { useState, useTransition, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { Order } from "@prisma/client";
-import { addOrder, updateOrderStatus, deleteOrder, updateOrder } from "@/lib/actions/orders";
+import {
+  addOrder,
+  updateOrderStatus,
+  deleteOrder,
+  updateOrder,
+} from "@/lib/actions/orders";
 import { formatCurrency, formatDate, formatDateInput } from "@/lib/utils";
 import { Modal } from "./Modal";
 import { Pagination } from "./Pagination";
@@ -351,45 +356,111 @@ export function OrdersSection({
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={labelCls}>Order Date</label>
-                <input name="date" type="date" defaultValue={formatDateInput(new Date(editingOrder.date))} required className={inputCls} style={inputStyle} />
+                <input
+                  name="date"
+                  type="date"
+                  defaultValue={formatDateInput(new Date(editingOrder.date))}
+                  required
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label className={labelCls}>Customer Name *</label>
-                <input name="customerName" defaultValue={editingOrder.customerName} required autoFocus className={inputCls} style={inputStyle} />
+                <input
+                  name="customerName"
+                  defaultValue={editingOrder.customerName}
+                  required
+                  autoFocus
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label className={labelCls}>Phone (optional)</label>
-                <input name="phone" type="tel" defaultValue={editingOrder.phone ?? ""} className={inputCls} style={inputStyle} />
+                <input
+                  name="phone"
+                  type="tel"
+                  defaultValue={editingOrder.phone ?? ""}
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label className={labelCls}>Product Name *</label>
-                <input name="productName" defaultValue={editingOrder.productName} required className={inputCls} style={inputStyle} />
+                <input
+                  name="productName"
+                  defaultValue={editingOrder.productName}
+                  required
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label className={labelCls}>Quantity *</label>
-                <input name="quantity" type="number" min={1} value={editQty}
-                  onChange={(e) => setEditQty(Math.max(1, parseInt(e.target.value) || 1))}
-                  required className={inputCls} style={inputStyle} />
+                <input
+                  name="quantity"
+                  type="number"
+                  min={1}
+                  value={editQty}
+                  onChange={(e) =>
+                    setEditQty(Math.max(1, parseInt(e.target.value) || 1))
+                  }
+                  required
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
               <div>
                 <label className={labelCls}>Unit Price (৳) *</label>
-                <input name="unitPrice" type="number" min={0} step="0.01" value={editPrice || ""}
-                  onChange={(e) => setEditPrice(parseFloat(e.target.value) || 0)}
-                  placeholder="0.00" required className={inputCls} style={inputStyle} />
+                <input
+                  name="unitPrice"
+                  type="number"
+                  min={0}
+                  step="0.01"
+                  value={editPrice || ""}
+                  onChange={(e) =>
+                    setEditPrice(parseFloat(e.target.value) || 0)
+                  }
+                  placeholder="0.00"
+                  required
+                  className={inputCls}
+                  style={inputStyle}
+                />
               </div>
             </div>
-            <div className="rounded-xl p-4 flex items-center justify-between" style={{ backgroundColor: "#E6F7F7", border: "1px solid #b0e0e0" }}>
+            <div
+              className="rounded-xl p-4 flex items-center justify-between"
+              style={{
+                backgroundColor: "#E6F7F7",
+                border: "1px solid #b0e0e0",
+              }}
+            >
               <div>
                 <p className="text-xs text-gray-500 font-medium">Total</p>
-                <p className="text-xs text-gray-400">{editQty} × {formatCurrency(editPrice)}</p>
+                <p className="text-xs text-gray-400">
+                  {editQty} × {formatCurrency(editPrice)}
+                </p>
               </div>
-              <span className="text-2xl font-bold" style={{ color: "#2BBCBC" }}>{formatCurrency(editTotal)}</span>
+              <span className="text-2xl font-bold" style={{ color: "#2BBCBC" }}>
+                {formatCurrency(editTotal)}
+              </span>
             </div>
             <div className="flex gap-3 pt-1">
-              <button type="submit" disabled={isPending} className="btn-teal flex-1 h-11 justify-center disabled:opacity-60">
+              <button
+                type="submit"
+                disabled={isPending}
+                className="btn-teal flex-1 h-11 justify-center disabled:opacity-60"
+              >
                 {isPending ? "Saving..." : "💾 Save Changes"}
               </button>
-              <button type="button" onClick={() => setEditingOrder(null)} className="btn-outline h-11 px-5">Cancel</button>
+              <button
+                type="button"
+                onClick={() => setEditingOrder(null)}
+                className="btn-outline h-11 px-5"
+              >
+                Cancel
+              </button>
             </div>
           </form>
         )}
@@ -500,7 +571,7 @@ export function OrdersSection({
               disabled={isPending}
               className="btn-teal flex-1 h-11 justify-center disabled:opacity-60"
             >
-              {isPending ? "Saving..." : "💍 Save Order"}
+              {isPending ? "Saving..." : "Save Order"}
             </button>
             <button
               type="button"

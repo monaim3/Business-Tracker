@@ -29,7 +29,9 @@ export function LoginForm() {
       setError("Invalid email or password.");
     } else {
       toast.success("Login successful! Redirecting...");
-      setTimeout(() => { window.location.href = "/"; }, 1000);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
     }
   }
 
@@ -46,17 +48,24 @@ export function LoginForm() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-3">
-            <Image src="/Monaax.png" alt="Monaax" width={150} height={44} priority className="object-contain" />
+            <Image
+              src="/Monaax.png"
+              alt="Monaax"
+              width={150}
+              height={44}
+              priority
+              className="object-contain"
+            />
           </div>
-          <p className="text-xs font-semibold tracking-widest uppercase text-gray-400">
-            Order Tracker
-          </p>
         </div>
 
         {/* Card */}
         <div
           className="bg-white rounded-2xl p-8 space-y-5"
-          style={{ border: "1.5px solid #d0eded", boxShadow: "0 4px 24px rgba(43,188,188,0.08)" }}
+          style={{
+            border: "1.5px solid #d0eded",
+            boxShadow: "0 4px 24px rgba(43,188,188,0.08)",
+          }}
         >
           <div>
             <h1 className="text-xl font-bold" style={{ color: "#0D2B2B" }}>
@@ -124,9 +133,7 @@ export function LoginForm() {
           </form>
         </div>
 
-        <p className="text-center text-xs text-gray-400 mt-6">
-          💍 Monaax © 2026
-        </p>
+        <p className="text-center text-xs text-gray-400 mt-6">Monaax © 2026</p>
       </div>
     </div>
   );
